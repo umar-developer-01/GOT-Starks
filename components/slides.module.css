@@ -1,0 +1,88 @@
+.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.imageSize {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: translate 300ms ease-in-out;
+}
+
+.sliderButton {
+  all: unset;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background-color 100ms ease-in-out;
+}
+
+.sliderButton:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.sliderButton:hover > * {
+  animation: squish 200ms ease-in-out;
+}
+
+@keyframes squish {
+    50% {
+      scale:1.4 0.6;
+    }
+}
+
+.sliderButton > * {
+  stroke: white;
+  fill: black;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+
+.dots {
+    position: absolute;
+    bottom:1rem;
+    left:50%;
+    transform: translate(-50%,0);
+    display: flex;
+    gap:.35rem;
+}
+
+
+.dotButton {
+    all: unset;
+    display: block;
+    height:1.25rem;
+    width:1.25rem;
+    cursor: pointer;
+    transition: scale 100ms ease-in-out;
+}
+
+.dotButton:hover {
+    scale: 1.2;
+}
+
+
+.dotButton > * {
+    stroke: white;
+    fill: black;
+    height:100%;
+    width:100%;
+}

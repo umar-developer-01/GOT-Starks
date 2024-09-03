@@ -1,0 +1,269 @@
+
+
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listItem {
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+}
+
+
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
+}
+
+
+.recommendCount {
+    margin-right: auto;
+}
+
+.recommendFriends {
+    display: flex;
+}
+
+.recommendPhoto {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+
+.recommendPhoto:not(:last-child){
+    margin-right: -1rem;
+}
+
+
+
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviewText {
+    margin-bottom: 2rem;
+    z-index: 10;
+    position: relative;
+}
+
+.reviewUser {
+    display: flex;
+    align-items: center;
+}
+
+.reviewPhoto {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+}
+
+.reviewUserBox {
+    margin-right: auto;
+}
+
+.reviewUserName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.reviewUserDate {
+    font-size: 1rem;
+    color: var(--color-grey-dark-3);
+}
+
+.reviewRating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.review::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1;
+}
+
+/* Media query */
+@media only screen and (max-width: var(--bp-medium)) {
+    .review {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+
+/* button.module.css */
+
+.btnInline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btnInline span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+}
+
+.btnInline:hover {
+    color: var(--color-grey-dark-1);
+}
+
+.btnInline:hover span {
+    margin-left: 8px;
+}
+
+.btnInline:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+
+.gallerySection {
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+    padding:4.5rem;
+}
+
+
+.innerGallerySection {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding:3rem;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+
+.galleryHeading {
+    align-self: center;
+    font-size: 40px;
+    font-family: var(--sevillana-font);
+}
+
+.imageContainer {
+    display: flex;
+    /* gap:30px; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.galleryPhoto {
+    height:20rem;
+    width:20rem;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .galleryPhoto {
+        margin-bottom: 3rem;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .innerGallerySection {
+        padding: 1rem;
+    }
+
+    .listItem {
+        flex: 0 0 100%;
+        margin-bottom: .7rem;
+    }
+}
+
+
+
+
+.logoContainer {
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+    padding:2rem;
+}
+
+
+.innerContainer {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 5rem;      
+    display: flex;
+    justify-content: center;
+} 
+
+
+
+.slider {
+    width:900px;
+    height:450px;
+    margin:0 auto;
+    position: relative;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .innerContainer {
+        padding: 1rem 1rem 5rem 1rem; /* Equal left and right padding */
+    }
+
+    .slider {
+        width: 360px;
+        height: 300px;
+        margin: 0 auto; /* Center the slider */
+        padding-left: 0; /* Ensure no extra padding on the left */
+        padding-right: 0; /* Ensure no extra padding on the right */
+    }
+}
