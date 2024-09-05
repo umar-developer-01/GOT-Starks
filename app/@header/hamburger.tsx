@@ -1,19 +1,18 @@
 "use client";
-
-
-import { useState } from "react";
+import { useAppContext } from "@/appContext/index";
 import headerStyles from "./header.module.css";
 
 export default function Hamburger() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const { isOpen, toggleMenu } = useAppContext();
 
   return (
     <>
-      <div  className={`${headerStyles.hamburgerContainer} ${isOpen ? headerStyles.open : ""}`}  onClick={toggleMenu}>
+      <div
+        className={`${headerStyles.hamburgerContainer} ${
+          isOpen ? headerStyles.open : ""
+        }`}
+        onClick={toggleMenu}
+      >
         <div className={headerStyles.hamburger}></div>
         <div className={headerStyles.hamburger}></div>
         <div className={headerStyles.hamburger}></div>

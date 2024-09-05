@@ -1,5 +1,7 @@
 import Image from "next/image";
+import client from "@/db";
 import layoutStyles from "./layout.module.css";
+import Link from "next/link"
 import componentStyles from "./component.module.css";
 import Rob from "../images/rob.jpg";
 import Ricken from "../images/rickon.jpg";
@@ -21,7 +23,23 @@ import SliderLogo4 from "../images/robb.jpg";
 import Slider5 from "../images/Slider5.webp"
 
 
-export default function Home() {
+async function getUserDetails() {
+  try {
+    // const user = await client.user.findFirst({});
+    const users = await client.user.findMany({});
+    console.log("these are the user",users);
+	  return {
+      name: "umar",
+      email: "khan"
+    }
+  }  catch(e) {
+    console.log(e);
+  }
+}
+
+export default async function Home() {
+  const data = await getUserDetails()
+  console.log("this is the data",data);
   const slides = [
     { url: StarkLogo, title: "Slide1" },
     { url: SliderLogo2, title: "Slide2" },
@@ -41,6 +59,9 @@ export default function Home() {
       <div className={layoutStyles.detail}>
         <div className={layoutStyles.description}>
           <p className={componentStyles.paragraph}>
+            {data?.email}
+            {data?.name}
+            <Link href="/signup">Signup</Link>
             House Stark of Winterfell is a Great House of Westeros and the royal
             house of the Kingdom of the North. They rule over the vast region
             known as the North.
