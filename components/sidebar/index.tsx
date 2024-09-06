@@ -46,10 +46,10 @@ export function SidebarComponent() {
             <Link href="/" className={sidebarStyles.list}>
               Home
             </Link>
-            <Link href="/about" className={sidebarStyles.list}>
+            <Link href="/" className={sidebarStyles.list}>
               About
             </Link>
-            <Link href="/contact" className={sidebarStyles.list}>
+            <Link href="/" className={sidebarStyles.list}>
               Contact
             </Link>
   
