@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 200px;
   height: 100%;
   background-color: #fff;
   box-shadow: var(--shadow-light);
@@ -11,6 +11,8 @@
   padding: 20px;
   transform: translateX(-102%);
   transition: transform 0.3s ease; /* Use transform for smooth sliding */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Sidebar when open */
@@ -39,4 +41,52 @@
 
 .sidebar ul li {
   margin: 15px 0;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+
+
+.photoImage {
+  display: block;
+  height:70px;
+  width:70px;
+}
+
+.innerContainer {
+  margin-top: 30px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
+
+.list {
+  text-decoration: none;
+  color:black;
+  outline: none; /* Remove focus outline */
+  -webkit-tap-highlight-color: transparent; /* Remove blue highlight on mobile (Safari, Chrome) */
+}
+
+
+/* Remove blue color on click */
+.list:active,
+.list:focus {
+  color: black; /* Keep the same color on click */
+  outline: none; /* Remove the default blue focus outline */
+  text-decoration: none; /* Ensure underline is not applied */
+  -webkit-tap-highlight-color: transparent; /* Ensure no highlight appears */
+}
+
+
+
+.list:hover {
+  color:#333;
 }

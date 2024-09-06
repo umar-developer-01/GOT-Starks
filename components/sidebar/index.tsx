@@ -1,11 +1,13 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 import sidebarStyles from "./index.module.css";
+import Photo from "@/images/photo.png";
+import Image from "next/image";
+import Link from "next/link";
 import { useAppContext } from "@/appContext/index";
 
 export function SidebarComponent() {
-  const { isOpen, toggleMenu,closeButtonRef } = useAppContext();
+  const { isOpen, toggleMenu, closeButtonRef } = useAppContext();
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export function SidebarComponent() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, toggleMenu]);
 
   return (
@@ -37,13 +39,30 @@ export function SidebarComponent() {
           isOpen ? `${sidebarStyles.open}` : ""
         }`}
       >
-        <h2>Sidebar Menu</h2>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Contact</li>
-        </ul>
+        <div className={sidebarStyles.innerContainer}>
+          <Image src={Photo} className={sidebarStyles.photoImage} alt="photo" />
+
+          <ul className={sidebarStyles.container}>
+            <Link href="/" className={sidebarStyles.list}>
+              Home
+            </Link>
+            <Link href="/about" className={sidebarStyles.list}>
+              About
+            </Link>
+            <Link href="/contact" className={sidebarStyles.list}>
+              Contact
+            </Link>
+  
+            <Link href="/login" className={sidebarStyles.list}>
+              Login
+            </Link>{" "}
+       
+            <Link href="/signup" className={sidebarStyles.list}>
+              Signup
+            </Link>{" "}
+       
+          </ul>
+        </div>
       </div>
     </>
   );
