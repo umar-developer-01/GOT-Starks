@@ -3,7 +3,7 @@ import { useState } from "react";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
 import { ArrowBigLeft, ArrowBigRight, CircleDot,Circle } from "lucide-react";
-import sliderStyles from "./slides.module.css";
+import sliderStyles from "./index.module.css";
 
 interface Slide {
   url: string | StaticImageData;
@@ -14,7 +14,7 @@ interface Slides {
   slides: Slide[];
 }
 
-export default function ImageSlider({ slides }: Slides) {
+export default function Slider({ slides }: Slides) {
   const [imageIndex, setimageIndex] = useState<number>(0);
 
   const showPrevImage = () => {

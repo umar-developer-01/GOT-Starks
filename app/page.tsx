@@ -3,6 +3,7 @@ import client from "@/db";
 import layoutStyles from "./layout.module.css";
 import Link from "next/link"
 import componentStyles from "./component.module.css";
+import Slider from "@/components/slider";
 import Rob from "../images/rob.jpg";
 import Ricken from "../images/rickon.jpg";
 import John from "../images/Snow.jpg";
@@ -16,7 +17,6 @@ import John3 from "../images/John3.jpg";
 import John4 from "../images/John4.jpg";
 import John5 from "../images/Hon5.webp";
 import StarkLogo from "../images/StarkMain.jpg";
-import ImageSlider from "../components/imageSlider";
 import SliderLogo2 from "../images/NedStark1.jpg";
 import SliderLogo3 from "../images/222.jpg";
 import SliderLogo4 from "../images/robb.jpg";
@@ -39,7 +39,7 @@ async function getUserDetails() {
 
 export default async function Home() {
   const data = await getUserDetails()
-  console.log("this is the data",data);
+
   const slides = [
     { url: StarkLogo, title: "Slide1" },
     { url: SliderLogo2, title: "Slide2" },
@@ -52,7 +52,7 @@ export default async function Home() {
       <div className={componentStyles.logoContainer}>
         <div className={componentStyles.innerContainer}>
           <div className={componentStyles.slider}>
-            <ImageSlider slides={slides} />
+            <Slider slides={slides} />
           </div>
         </div>
       </div>

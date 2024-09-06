@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import sidebarStyles from "./sidebar.module.css";
+import sidebarStyles from "./index.module.css";
 import { useAppContext } from "@/appContext/index";
 
 export function SidebarComponent() {
