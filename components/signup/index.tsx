@@ -1,6 +1,7 @@
 // components/Signup.tsx
 "use client"; // Mark this component as a client component
-
+import { useModal } from "@/modal/context";
+import Modal from "@/modal/index";
 import { signup } from "@/app/actions/user";
 import { useState } from "react";
 import Link from "next/link";
@@ -10,9 +11,12 @@ export function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { openModal } = useModal();
+
   return (
     <>
       <div className={indexStyles.layoutContainer}>
+
         <div className={indexStyles.formContainer}>
           <p className={indexStyles.title}>Signup</p>
           <form className={indexStyles.form}>
@@ -47,7 +51,6 @@ export function Signup() {
                 />
               </div>
 
-
               <div className={indexStyles.inputGroup}>
                 <label htmlFor="password">Confirm Password</label>
                 <input
@@ -57,11 +60,8 @@ export function Signup() {
                   placeholder=""
                 />
               </div>
-
-
             </div>
 
-    
             <button className={indexStyles.sign}>Sign up</button>
           </form>
 
@@ -114,7 +114,15 @@ export function Signup() {
             <p className={indexStyles.signupP}>Login</p>
           </div>
         </div>
+        <button onClick={() => openModal('loginModal')}>Open Login Modal</button>
+      
       </div>
+
+
+        <Modal id={"loginModal"} title={"Signup"}>
+          <h2>Login</h2>
+          <p>Login form here...</p>
+        </Modal>
     </>
   );
 }
