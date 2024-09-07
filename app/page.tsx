@@ -59,9 +59,6 @@ export default async function Home() {
       <div className={layoutStyles.detail}>
         <div className={layoutStyles.description}>
           <p className={componentStyles.paragraph}>
-            {data?.email}
-            {data?.name}
-            <Link href="/signup">Signup</Link>
             House Stark of Winterfell is a Great House of Westeros and the royal
             house of the Kingdom of the North. They rule over the vast region
             known as the North.
