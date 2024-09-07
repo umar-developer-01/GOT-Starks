@@ -14,11 +14,21 @@ export function Signup() {
     <>
       <div className={indexStyles.layoutContainer}>
         <div className={indexStyles.formContainer}>
-          <p className={indexStyles.title}>Login</p>
+          <p className={indexStyles.title}>Signup</p>
           <form className={indexStyles.form}>
             <div className={indexStyles.inputGroupContainer}>
               <div className={indexStyles.inputGroup}>
                 <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder=""
+                />
+              </div>
+
+              <div className={indexStyles.inputGroup}>
+                <label htmlFor="username">Email</label>
                 <input
                   type="text"
                   name="username"
@@ -36,19 +46,28 @@ export function Signup() {
                   placeholder=""
                 />
               </div>
+
+
+              <div className={indexStyles.inputGroup}>
+                <label htmlFor="password">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder=""
+                />
+              </div>
+
+
             </div>
 
-            <div className={indexStyles.forgot}>
-              <a rel="noopener noreferrer" href="#">
-                Forgot Password ?
-              </a>
-            </div>
-            <button className={indexStyles.sign}>Sign in</button>
+    
+            <button className={indexStyles.sign}>Sign up</button>
           </form>
 
           <div className={indexStyles.socialMessage}>
             <div className={indexStyles.line}></div>
-            <p className={indexStyles.message}>Login with social accounts</p>
+            <p className={indexStyles.message}>Signup with social accounts</p>
             <div className={indexStyles.line}></div>
           </div>
 
@@ -91,8 +110,8 @@ export function Signup() {
             </button>
           </div>
           <div className={indexStyles.signup}>
-            <p>Don't have an account?</p>
-            <p className={indexStyles.signupP}>Sign up</p>
+            <p>Already have an account?</p>
+            <p className={indexStyles.signupP}>Login</p>
           </div>
         </div>
       </div>

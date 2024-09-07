@@ -43,21 +43,21 @@ export function SidebarComponent() {
           <Image src={Photo} className={sidebarStyles.photoImage} alt="photo" />
 
           <ul className={sidebarStyles.container}>
-            <Link href="/" className={sidebarStyles.list}>
+            <Link href="/"  onClick={toggleMenu} className={sidebarStyles.list}>
               Home
             </Link>
-            <Link href="/" className={sidebarStyles.list}>
+            <Link href="/"  onClick={toggleMenu} className={sidebarStyles.list}>
               About
             </Link>
-            <Link href="/" className={sidebarStyles.list}>
+            <Link href="/"  onClick={toggleMenu} className={sidebarStyles.list}>
               Contact
             </Link>
   
-            <Link href="/login" className={sidebarStyles.list}>
+            <Link href="/login" onClick={toggleMenu} className={sidebarStyles.list}>
               Login
             </Link>{" "}
        
-            <Link href="/signup" className={sidebarStyles.list}>
+            <Link href="/signup" onClick={toggleMenu} className={sidebarStyles.list}>
               Signup
             </Link>{" "}
        
