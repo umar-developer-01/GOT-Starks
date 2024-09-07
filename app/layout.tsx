@@ -13,10 +13,12 @@ export default function RootLayout({
   header,
   children,
   sidebar,
+  // footer
 }: Readonly<{
   header: React.ReactNode;
   children: React.ReactNode;
   sidebar: React.ReactNode;
+  // footer:React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -26,6 +28,7 @@ export default function RootLayout({
             {header}
             {children}
             {sidebar}
+            {/* {footer} */}
           </ModalProvider>
         </AppProvider>
       </body>
