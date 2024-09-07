@@ -41,7 +41,7 @@ const Modal: React.FC<ModalProps> = ({
               <X />
             </div>
           </div>
-          <div>{children}</div>
+          <div className={modalStyles.children}>{children}</div>
         </div>
         <div className={modalStyles.buttonPlacement}>
         <button

@@ -129,9 +129,9 @@ export function Signup() {
 
       <Modal id={"loginModal"} title={"Signup"} buttonName={"Signup"} click={handleClick}>
         <>
-          <p className={indexStyles.info}>
+          <div>
             Are you sure you want to continue with it
-          </p>
+          </div>
         </>
       </Modal>
     </>

@@ -58,3 +58,7 @@
   display: flex;
   justify-content: center;
 }
+
+.children {
+  padding:20px;
+}
