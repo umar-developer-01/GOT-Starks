@@ -7,16 +7,24 @@ import { useState } from "react";
 import Link from "next/link";
 import indexStyles from "./index.module.css";
 
+interface ModalReturnData {
+  click: (arg: Record<string, any>) => Record<string, any>;
+}
+
+
 export function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const { openModal } = useModal();
 
+
+  const handleClick = (data:ModalReturnData) =>{
+    console.log("this is the click yeah",data);
+  } 
   return (
     <>
       <div className={indexStyles.layoutContainer}>
-
         <div className={indexStyles.formContainer}>
           <p className={indexStyles.title}>Signup</p>
           <form className={indexStyles.form}>
@@ -114,15 +122,18 @@ export function Signup() {
             <p className={indexStyles.signupP}>Login</p>
           </div>
         </div>
-        <button onClick={() => openModal('loginModal')}>Open Login Modal</button>
-      
+        <button onClick={() => openModal("loginModal")}>
+          Open Login Modal
+        </button>
       </div>
 
-
-        <Modal id={"loginModal"} title={"Signup"}>
-          <h2>Login</h2>
-          <p>Login form here...</p>
-        </Modal>
+      <Modal id={"loginModal"} title={"Signup"} buttonName={"Signup"} click={handleClick}>
+        <>
+          <p className={indexStyles.info}>
+            Are you sure you want to continue with it
+          </p>
+        </>
+      </Modal>
     </>
   );
 }

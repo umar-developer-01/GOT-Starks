@@ -19,6 +19,12 @@
   z-index: 10000; /* Higher than the overlay */
   height:300px;
   width:300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex:1;
 }
 
 .titleAndClose {
@@ -44,4 +50,11 @@
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 16px; /* Adjust font size */
   color: #333; /* Set text color */
+}
+
+.buttonPlacement {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
