@@ -1,33 +1,33 @@
-// components/Signup.tsx
-"use client"; // Mark this component as a client component
-import { useModal } from "@/modal/context";
-import Modal from "@/modal/index";
-import { signup } from "@/app/actions/user";
-import { useState } from "react";
-import Link from "next/link";
+
+'use client';
+
+import { useFormState, useFormStatus } from "react-dom";
+import { signUp } from "@/app/actions/user";
 import indexStyles from "./index.module.css";
 
-interface ModalReturnData {
-  click: (arg: Record<string, any>) => Record<string, any>;
+
+interface InitialState {
+  username:string | null;
+  password:string | null;
+}
+
+const initialState:InitialState = {
+  username:null,
+  password:null
 }
 
 
 export function Signup() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  const { openModal } = useModal();
+  const [state,formAction] = useFormState(signUp,initialState); 
 
-
-  const handleClick = (data:ModalReturnData) =>{
-    console.log("this is the click yeah",data);
-  } 
+  console.log("this is the state",state);
   return (
     <>
       <div className={indexStyles.layoutContainer}>
         <div className={indexStyles.formContainer}>
           <p className={indexStyles.title}>Signup</p>
-          <form className={indexStyles.form}>
+          <form className={indexStyles.form} action={formAction}>
             <div className={indexStyles.inputGroupContainer}>
               <div className={indexStyles.inputGroup}>
                 <label htmlFor="username">Username</label>
@@ -36,9 +36,10 @@ export function Signup() {
                   name="username"
                   id="username"
                   placeholder=""
+                  
                 />
               </div>
-
+{/* 
               <div className={indexStyles.inputGroup}>
                 <label htmlFor="username">Email</label>
                 <input
@@ -46,8 +47,9 @@ export function Signup() {
                   name="username"
                   id="username"
                   placeholder=""
+                
                 />
-              </div>
+              </div> */}
 
               <div className={indexStyles.inputGroup}>
                 <label htmlFor="password">Password</label>
@@ -59,18 +61,19 @@ export function Signup() {
                 />
               </div>
 
-              <div className={indexStyles.inputGroup}>
-                <label htmlFor="password">Confirm Password</label>
+              {/* <div className={indexStyles.inputGroup}>
+                <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
                   type="password"
-                  name="password"
-                  id="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
                   placeholder=""
                 />
-              </div>
+              </div> */}
             </div>
-
-            <button className={indexStyles.sign}>Sign up</button>
+            <p>{state?.message}</p>
+            <SubmitButton/>
+          
           </form>
 
           <div className={indexStyles.socialMessage}>
@@ -122,21 +125,32 @@ export function Signup() {
             <p className={indexStyles.signupP}>Login</p>
           </div>
         </div>
-        <button onClick={() => openModal("loginModal")}>
-          Open Login Modal
-        </button>
+
       </div>
 
-      <Modal id={"loginModal"} title={"Signup"} buttonName={"Signup"} click={handleClick}>
-        <>
-          <div>
-            Are you sure you want to continue with it
-          </div>
-        </>
-      </Modal>
+
     </>
   );
 }
+
+
+
+interface FormStatus {
+  pending:boolean;
+}
+// Submit Button
+function SubmitButton():JSX.Element {
+  const { pending }:FormStatus = useFormStatus();
+
+  return (
+    <>
+      <button className={indexStyles.sign} disabled={pending} type="submit">{pending ? "Signing up..." : "Sign up"}</button>
+    </>
+  )  
+}
+
+
+
 
 {
   /* // <div className="h-screen flex justify-center flex-col">
@@ -157,3 +171,41 @@ export function Signup() {
     //     Sign up
     //   </button> */
 }
+
+
+
+// components/Signup.tsx
+// "use client"; // Mark this component as a client component
+// import { useModal } from "@/modal/context";
+// import Modal from "@/modal/index";
+
+// import Link from "next/link";
+
+// interface ModalReturnData {
+//   click: (arg: Record<string, any>) => Record<string, any>;
+// }
+
+// const [username, setUsername] = useState("");
+// const [password, setPassword] = useState("");
+
+
+
+// const { openModal } = useModal();
+// const handleClick = (data:ModalReturnData) =>{
+//   console.log("this is the click yeah",data);
+// } 
+
+{/* <button onClick={() => openModal("loginModal")}>
+Open Login Modal
+</button> */}
+
+
+
+
+// <Modal id={"loginModal"} title={"Signup"} buttonName={"Signup"} click={handleClick}>
+// <>
+//   <div>
+//     Are you sure you want to continue with it
+//   </div>
+// </>
+// </Modal>

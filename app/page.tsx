@@ -39,6 +39,7 @@ async function getUserDetails() {
 
 export default async function Home() {
   const data = await getUserDetails()
+  console.log("this is the data",data);
 
   const slides = [
     { url: StarkLogo, title: "Slide1" },
